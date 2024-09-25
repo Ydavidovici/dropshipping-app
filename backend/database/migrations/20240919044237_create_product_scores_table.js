@@ -1,24 +1,22 @@
-// backend/database/migrations/20240919044237_create_product_scores_table.js
+// backend/database/migrations/20240925_create_product_scores_table.js
 
 exports.up = function(knex) {
-    return knex.schema.createTable('product_scores', function(table) {
+    return knex.schema.createTable('product_scores', (table) => {
         table.increments('id').primary();
-        table.integer('product_id').unsigned().notNullable()
-            .references('id').inTable('products').onDelete('CASCADE');
-
-        table.integer('demand').defaultTo(0);
-        table.integer('competition').defaultTo(0);
-        table.integer('profit_margin').defaultTo(0);
-        table.integer('shipping_handling').defaultTo(0);
-        table.integer('return_rate').defaultTo(0);
-        table.integer('seasonality').defaultTo(0);
-        table.integer('product_restrictions').defaultTo(0);
-        table.integer('total_score').defaultTo(0);
-
-        table.timestamps(true, true); // created_at and updated_at
+        table.integer('product_id').unsigned().references('id').inTable('products').onDelete('CASCADE').notNullable();
+        table.decimal('demand_score', 5, 2).notNullable();
+        table.decimal('competition_score', 5, 2).notNullable();
+        table.decimal('profit_margin_score', 5, 2).notNullable();
+        table.decimal('supplier_reliability_score', 5, 2).notNullable();
+        table.decimal('shipping_handling_score', 5, 2).notNullable();
+        table.decimal('return_rate_score', 5, 2).notNullable();
+        table.decimal('seasonality_score', 5, 2).notNullable();
+        table.decimal('product_restrictions_score', 5, 2).notNullable();
+        table.decimal('final_score', 5, 2).notNullable();
+        table.timestamps(true, true);
     });
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('product_scores');
+    return knex.schema.dropTableIfExists('product_scores');
 };
