@@ -10,8 +10,8 @@ const productRoutes = require('./product');
 const orderRoutes = require('./orders');
 const reviewRoutes = require('./review');
 
-// Import Scoring Module Routes
-const scoreRoutes = require('../modules/scoring/routes/score');
+// Import Alerts Module Routes
+const alertsRoutes = require('../modules/alerts/routes/alerts');
 
 // Use CRUD Routes
 router.use('/auth', authRoutes);
@@ -20,7 +20,7 @@ router.use('/products', productRoutes);
 router.use('/orders', orderRoutes);
 router.use('/reviews', reviewRoutes);
 
-// Use Scoring Routes
-router.use('/scoring', scoreRoutes);
+// Use Alerts Routes
+router.use('/alerts', alertsRoutes);
 
 module.exports = router;
