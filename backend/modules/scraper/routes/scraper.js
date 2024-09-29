@@ -10,7 +10,7 @@ const { searchProductsSchema } = require('../../validation/scraperValidation');
 
 /**
  * @route POST /api/scraper/trigger
- * @desc Trigger the scraping process manually with custom search parameters
+ * @desc Trigger the scraper process manually with custom search parameters
  * @access Private (e.g., Admin or Authorized Users)
  */
 router.post(

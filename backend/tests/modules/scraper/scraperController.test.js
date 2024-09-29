@@ -1,4 +1,4 @@
-// tests/scraping/scraperController.test.js
+// tests/scraper/scraperController.test.js
 
 const request = require('supertest');
 const express = require('express');
@@ -39,7 +39,7 @@ describe('Scraper Controller', () => {
     await knex.destroy();
   });
 
-  test('Should trigger scraping with valid search parameters', async () => {
+  test('Should trigger scraper with valid search parameters', async () => {
     const res = await request(app)
       .post('/api/scraper/trigger')
       .send({

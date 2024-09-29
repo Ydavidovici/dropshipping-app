@@ -2,7 +2,7 @@
 
 /**
  * Define your data sources here.
- * Each source can have its own search parameters and scraping logic.
+ * Each source can have its own search parameters and scraper logic.
  */
 
 const sources = [

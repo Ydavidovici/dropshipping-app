@@ -121,7 +121,7 @@ const ScraperService = {
   },
 
   /**
-   * Orchestrate the product search, scraping, and saving process.
+   * Orchestrate the product search, scraper, and saving process.
    * @param {Object} searchParams - Parameters for searching products.
    * @returns {Array} - List of saved or updated products.
    */

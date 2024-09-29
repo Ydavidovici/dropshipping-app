@@ -7,7 +7,7 @@ const { searchProductsSchema } = require('../../../validation/scraperValidation'
 const logger = require('../../../utils/logger');
 
 /**
- * Trigger scraping based on user-provided search parameters.
+ * Trigger scraper based on user-provided search parameters.
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.
  */
