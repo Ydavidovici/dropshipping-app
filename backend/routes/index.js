@@ -10,14 +10,17 @@ const productRoutes = require('./product');
 const orderRoutes = require('./orders');
 const reviewRoutes = require('./review');
 
-// Import Scraper Module Routes
-const scraperRoutes = require('../modules/scraper/routes/scraper');
-
 // Import Alerts Module Routes
 const alertsRoutes = require('../modules/alerts/routes/alerts');
 
+// Import Scraper Module Routes
+const scraperRoutes = require('../modules/scraper/routes/scraper');
+
 // Import Scoring Module Routes
 const scoreRoutes = require('../modules/scoring/routes/score');
+
+// Import Orchestrate Routes
+const orchestrateRoutes = require('./orchestrate');
 
 // Use CRUD Routes
 router.use('/auth', authRoutes);
@@ -29,10 +32,13 @@ router.use('/reviews', reviewRoutes);
 // Use Alerts Routes
 router.use('/alerts', alertsRoutes);
 
+// Use Scraper Routes
+router.use('/scraper', scraperRoutes);
+
 // Use Scoring Routes
 router.use('/scoring', scoreRoutes);
 
-// Use Scraper Routes
-router.use('/scraper', scraperRoutes);
+// Use Orchestrate Routes
+router.use('/orchestrate', orchestrateRoutes);
 
 module.exports = router;

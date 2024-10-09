@@ -1,15 +1,14 @@
-// backend/database/migrations/20240925_create_alerts_table.js
+// 20240919044240_create_alerts_table.js
 
 exports.up = function(knex) {
-    return knex.schema.createTable('alerts', (table) => {
+    return knex.schema.createTable('alerts', table => {
         table.increments('id').primary();
-        table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE').notNullable();
-        table.integer('product_id').unsigned().references('id').inTable('products').onDelete('CASCADE').notNullable();
-        table.string('condition_type').notNullable(); // e.g., 'price_drop', 'stock_low', 'new_competitor'
-        table.decimal('threshold', 10, 2).notNullable(); // Value that triggers the alert
-        table.string('notification_method').notNullable(); // 'email', 'sms', 'push'
-        table.boolean('active').notNullable().defaultTo(true);
-        table.timestamps(true, true);
+        table.string('alert_type').notNullable(); // Ensure this line exists
+        table.string('message').notNullable();
+        table.integer('product_id').unsigned().references('id').inTable('products').onDelete('CASCADE');
+        table.boolean('is_active').notNullable().defaultTo(true);
+        table.timestamp('created_at').defaultTo(knex.fn.now());
+        table.timestamp('updated_at').defaultTo(knex.fn.now());
     });
 };
 

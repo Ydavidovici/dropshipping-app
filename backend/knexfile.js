@@ -12,6 +12,4 @@ module.exports = {
       directory: './database/seeders',
     },
   },
-
-  // Add other environments (e.g., production) if needed
 };

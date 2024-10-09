@@ -15,6 +15,8 @@ exports.up = function(knex) {
         table.decimal('product_cost', 10, 2).notNullable().defaultTo(0.00);
         table.decimal('fees', 10, 2).notNullable().defaultTo(0.00);
         table.integer('supplier_id').unsigned().references('id').inTable('suppliers').onDelete('CASCADE');
+        table.integer('category_id').unsigned().notNullable()
+            .references('id').inTable('categories').onDelete('CASCADE');
         table.timestamps(true, true);
     });
 };
